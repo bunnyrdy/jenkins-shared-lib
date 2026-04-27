@@ -1,12 +1,12 @@
 def call(Map configMap){
     pipeline{
-        agent{
+        agent{ label 'AGENT-1'}
             environment{
                 employname = configMap.get('employname')
                 company  = configMap.get('company')
                 city  = configMap.get('city')
             }
-        }
+        
         options{
             disableConcurrentBuilds()
             timeout(time: 30, unit: 'MINUTES')
